@@ -1,0 +1,120 @@
+
+
+
+ <app-main>
+     
+
+<div class="container py-10">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Administrador : {{persona.nombre}} {{persona.apaterno}}</h1>
+
+
+
+
+  <div class="py-3">
+    <div class="container">
+      <div class="row hidden-md-up">
+
+        <div class="alert alert-primary" role="alert">
+          <label><strong>INFORMACION DE INGRESOS</strong></label>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card border-dark">
+            <div class="card-block alert-primary text-center">
+              <h1 class="card-title">INGRESOS DE HOY</h1>
+              <h1>S/. {{montoHoy.monto}}</h1>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card border-dark">
+            <div class="card-block alert-primary text-center">
+              <h1 class="card-title">TOTAL INGRESOS </h1>
+              <h1>S/. {{monto.monto}}</h1>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+     
+
+
+  
+
+  <div class="py-3">
+    <div class="container">
+      <div class="row hidden-md-up">
+
+        <div class="alert alert-success" role="alert">
+        <label><strong>INFORMACION DE CITAS</strong></label>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card border-dark">
+            <div class="card-block alert-danger text-center">
+              <h1 class="card-title">CITAS PENDIENTES</h1>
+              <h1>{{totalPendietes.cantidad}}</h1>
+            </div>
+          </div>
+        </div>
+      
+
+        <div class="col-md-4">
+          <div class="card border-dark">
+            <div class="card-block alert-success text-center">
+              <h1 class="card-title">CITAS ATENDIDAS</h1>
+              <h1>{{totalAtendidas.cantidad}}</h1>
+            </div>
+          </div>
+        </div>
+
+        
+      </div>
+    </div>
+  </div>
+      
+  
+
+  <div class="py-3">
+    <div class="container">
+      <div class="row hidden-md-up">
+        <div class="alert alert-danger" role="alert">
+          <label><strong>INFORMACION DE DESCUENTOS</strong></label>
+        </div>
+    
+
+        <div class="col-md-4">
+          <div class="card border-dark">
+            <div class="card-block alert-danger text-center">
+              
+              <h1 class="card-title">TOTAL DESCUENTOS</h1>
+                <h1>S/. {{descuentos.descuento}}</h1>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card border-dark">
+            <div class="card-block alert-danger text-center">
+              <h1 class="card-title">TOTAL DESCUENTOS HOY</h1>
+              <h1>S/. {{descuentosHoy.descuento}}</h1>
+            </div>
+          </div>
+        </div>
+      
+      </div>
+    </div>
+  </div>
+
+
+
+ 
+
+    </div>
+    </div>
+  </div>
+ </app-main>

@@ -1,0 +1,40 @@
+<p>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <span></span>
+        <span>
+          &nbsp;&nbsp;&nbsp;
+        </span>
+        <a  ><i class="fas fa-clinic-medical"></i> Policlinico Virgen de Guadalupe <span class="sr-only">(current)</span></a>
+        <span>
+          &nbsp;&nbsp;&nbsp;
+        </span>
+        <a ><i class="fas fa-phone"></i> +01 430-3964 <span class="sr-only">(current)</span></a>
+        <span>
+          &nbsp;&nbsp;&nbsp;
+        </span>
+        <a  ><i class="fas fa-mobile-alt"></i> +511992 777494 <span class="sr-only">(current)</span></a>
+        <span>
+          &nbsp;&nbsp;&nbsp;
+        </span>
+        <a ><i class="far fa-envelope"></i> drvictorcuya@yahoo.es <span class="sr-only">(current)</span></a>
+        <span>
+          &nbsp;&nbsp;&nbsp;
+        </span>
+        <a  ><i class="fas fa-award"></i>  <span class="sr-only">(current)</span></a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        
+        <a [routerLink]="['/recepcion']" role="button" class="btn btn-success" ><i class="fas fa-lg fa-house-user"></i> Inicio</a>
+      </div>
+    </span>
+        <span class="example-spacer"></span>
+        <button (click)="cerrarSession()" routerLinkActive="active" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+          <mat-icon>logout</mat-icon> 
+          <span>Cerrar Session</span>
+        </button>
+      </mat-toolbar-row>
+  
+    </mat-toolbar>
+  </p>

@@ -1,0 +1,91 @@
+<div class="container py-5">
+
+  <div class="app-title">
+    <div>
+      <h2><i class="fa fa-th-list"></i> Modulo - Reporte de Eventos</h2>
+      <p>se muestran todos los registros de eventos</p>
+    </div>
+    <ul class="app-breadcrumb breadcrumb side">
+      <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+      <li class="breadcrumb-item active"><a routerLink='/main'>Dashboard</a></li>
+      <li class="breadcrumb-item">Modulo Evento</li>
+
+    </ul>
+  </div>
+
+  <section class="py-4">
+
+    <form class="contact-form row" [formGroup]="formularioFechas" (ngSubmit)="listarEvento()">
+      <div class="row">
+        <div class="col-md-4">
+          <input class="form-control form-control-lg" type="date" formControlName="fecha1">
+        </div>
+        <div class="col-md-4">
+          <input class="form-control form-control-lg" type="date" formControlName="fecha2">
+        </div>
+        <div class="col-md-4">
+          <div class="d-grid gap-2">
+            <button class="btn btn-success btn-lg btn-block" [disabled]="!formularioFechas.valid"><span
+                class="glyphicon glyphicon-edit"></span> Mostrar</button>
+          </div>
+        </div>
+      </div>
+    </form>
+
+  </section>
+
+  <mat-form-field>
+    <mat-label>Buscar</mat-label>
+    <input matInput (keyup)="filtrar($event)" placeholder="buscar">
+  </mat-form-field>
+
+
+
+  <div class="mat-elevation-z1">
+    <table mat-table [dataSource]="dataSource" matTableExporter #exporter="matTableExporter" matSort>
+
+      <ng-container matColumnDef="ID">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+        <td mat-cell *matCellDef="let element" class="left-text"> {{element.id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="EVENTO">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> EVENTO </th>
+        <td mat-cell *matCellDef="let element" class="left-text"> {{element.evento}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="FECHA">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> FECHA </th>
+        <td mat-cell *matCellDef="let element" class="left-text"> {{element.fecha}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="HORA">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> HORA </th>
+        <td mat-cell *matCellDef="let element" class="left-text"> {{element.hora}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="ACCIONES">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ACCIONES </th>
+        <td mat-cell *matCellDef="let element" class="left-text">
+          <a class="btn btn-primary" href="#" role="button"><span class="material-icons">open_in_new</span></a>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5]"></mat-paginator>
+  </div>
+
+  <div class="py-2 d-grid gap-2 d-md-block">
+    <button mat-raised-button
+      (click)="exporter.exportTable('xlsx', {fileName:'evento', sheet: 'eventos', Props: {Author: 'Marco Granados'}})">Exportar
+      excel</button>
+    <button mat-raised-button
+      (click)="exporter.exportTable('csv', {fileName:'evento', sheet: 'eventos', Props: {Author: 'Marco Granados'}})">Exportar
+      csv</button>
+  </div>
+
+
+</div>

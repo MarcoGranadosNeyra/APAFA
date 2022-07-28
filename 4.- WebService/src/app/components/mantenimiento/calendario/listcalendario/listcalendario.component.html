@@ -1,0 +1,69 @@
+
+
+<div class="container py-5">
+
+    <div class="app-title">
+        <div>
+          <h2><i class="fa fa-th-list"></i> Modulo - Mantenimiento de Calendario</h2>
+          <p>Mantenimiento de Calendario</p>
+        </div>
+        <ul class="app-breadcrumb breadcrumb side">
+          <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+          <li class="breadcrumb-item active"><a routerLink='/main'>Dashboard</a></li>
+          <li class="breadcrumb-item">Modulo Calendario</li>
+        </ul>
+      </div>
+        
+      <div class="row">
+                <p><button (click)="agregarCalendario()" type="button" class="btn btn-primary" data-toggle="modal" id="btnAgregarCalendario"><i class="fa fa-plus"></i>Agregar Calendario</button></p>
+      </div>
+
+
+
+    <table datatable [dtOptions]="dtOptions"  class="table table-striped table-bordered dt-responsive  nowrap" style="width:100%">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>ESPECIALIDAD</th>
+        <th>MEDICO</th>
+        <th>DIA</th>
+        <th>HORA</th>
+        <th>FOTO</th>
+        <th>ESTADO</th>
+        <th>ACCIONES</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let calendario of calendario">
+        <td>{{calendario.id}}</td>
+        <td>{{calendario.especialidad}}</td>
+        <td>{{calendario.medico}}</td>
+        <td>{{calendario.dia}}</td>
+        <td>{{calendario.hora}}</td>
+        
+        <td><img src="{{calendario.foto}}" class="img-fluid" style="width: 50px;"></td>
+        <td *ngIf="calendario.estado; else triste"><img src="https://res.cloudinary.com/sistemas-granados/image/upload/v1620300512/smile_x7ry7k.png" class="img-fluid" style="width: 50px;"></td>
+        <ng-template #triste><img src="https://res.cloudinary.com/sistemas-granados/image/upload/v1621156148/sad-128_tnro66.png" class="img-fluid pt-4" style="width: 50px;"></ng-template> 
+
+                                            <!--TABLA PARA ORDERNAR LOS BOTONES DE EDITAR Y ACTUALIZAR-->
+                                            <td><table  cellpadding="2">
+                                                <tbody>
+                                                    <tr>
+                                                        <!--
+                                                        <td><a [routerLink]="['../editarCalendario/',calendario.id]" type="button"  class="btn btn-success edit" ><span class="fa fa-lg fa-edit"> </span></a></td>
+                                                        
+                                                        <td><a (click)="confirmarDialogo(calendario.id)" type="button" class="btn btn-danger"><i class="far fa-lg fa-calendar-times fa-1x"> Desactivar</i></a></td>
+                                                        <td><a (click)="confirmarDialogoActivar(calendario.id)" type="button" class="btn btn-success"><i class="far fa-lg fa-calendar-check fa-1x"> Activar</i></a></td>
+                                                          -->
+                                                        <td *ngIf="calendario.estado; else activate"><a (click)="confirmarDialogoDesactivar(calendario.id)" type="button" class="btn btn-danger"><i class="fas fa-lg fa-times-circle"> Desactivar</i></a></td>
+                                                        <ng-template #activate><a (click)="confirmarDialogoActivar(calendario.id)" type="button" class="btn btn-success"><i class="fas fa-lg  fa-check-square"> Activar</i></a></ng-template> 
+                                                        
+                                                    </tr>
+                                                </tbody>
+                                            </table></td>
+
+      </tr>
+    </tbody>
+  </table>
+
+</div>

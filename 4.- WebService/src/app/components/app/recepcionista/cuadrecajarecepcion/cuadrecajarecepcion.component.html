@@ -1,0 +1,97 @@
+
+<app-mat-toolbar-recepcionista></app-mat-toolbar-recepcionista>
+
+<div class="container-fluid">
+
+    <div class="app-title">
+        <div>
+          <h2><i class="fa fa-th-list"></i> Modulo - Recepcion</h2>
+        </div>
+        <h1></h1>
+      </div>
+        
+             
+      <form class="row g-3">
+        <div class="col-auto">
+            <p><button routerLink='/agregarPersonarecepcion' type="button" class="btn btn-primary" data-toggle="modal" id="btnAgregarProducto"><i class="fa fa-plus"></i> Nuevo Paciente</button></p>
+        </div>
+        <div class="col-auto">
+          <a routerLink='/citaspendientesrecepcion'  role="button" class="btn btn-success" ><i class="fas fa-user-md"></i> Citas Pendientes</a>
+        </div>
+        <div class="col-auto">
+            <a routerLink='/cuadrecajarecepcion'  role="button" class="btn btn-info" ><i class="fas fa-dollar-sign"></i> Cuadre Caja</a>
+          </div>
+      </form>
+  
+    <table id="example" class="table table-striped table-bordered dt-responsive  nowrap" style="width:100%">
+    <thead class="table-primary">
+      <tr>
+        <th>ID CITA</th>
+        <th>FORMA DE PAGO</th>
+        <th>ESPECIALIDAD</th>
+        <th>INGRESOS</th>
+        <th>DESCUENTOS</th>
+        <th>FECHA</th>
+        <th>HORA</th>
+
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ingresos of ingresos">
+        <td>{{ingresos.id}}</td>
+        <td>{{ingresos.forma_pago}}</td>
+        <td>{{ingresos.especialidad}}</td>
+        <td>{{ingresos.ingresos}}</td>
+        <td>{{ingresos.descuentos}}</td>
+        <td>{{ingresos.fecha}}</td>
+        <td>{{ingresos.hora}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  
+  <form class="row g-3" *ngFor="let cuadrecaja of cuadrecaja">
+    <div class="col-auto">
+        
+    <div class="alert alert-primary" role="alert">
+      <h1>Total Ingresos :   <strong>S/. {{cuadrecaja.ingresos}}</strong></h1>
+      </div>
+
+    </div>
+    <div class="col-auto">
+      
+    <div class="alert alert-primary" role="alert">
+      <h1>Total descuentos :  <strong>S/. {{cuadrecaja.descuentos}}</strong></h1>
+    </div>
+    </div>
+    <div class="col-auto">  
+      <div class="alert alert-primary" role="alert">
+        <h1>Ingreso Neto :  <strong>S/. {{cuadrecaja.neto}}</strong></h1>
+      </div>
+    </div>
+    <div class="col-auto">  
+      <div class="alert alert-primary" role="alert">
+        <h1>Ingreso en efectivo :  <strong>S/. {{efectivo.ingresos}}</strong></h1>
+      </div>
+    </div>
+  </form>
+
+
+    
+
+    
+
+    
+
+    <div class="d-grid gap-2 py-5">
+      <button (click)="imprimir()" class="btn btn-success btn-lg btn-block" >Imprimir</button>         
+    </div>
+
+
+
+
+  
+  </div>
+

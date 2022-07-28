@@ -1,0 +1,63 @@
+    
+    
+<app-mat-toolbar-recepcionista></app-mat-toolbar-recepcionista>
+
+<div class="container py-2" >
+
+    <div class="card border-primary" >
+        <div class="card-header bg-primary card-title text-white">
+            {{cita.especialidad}}
+        </div>
+
+    <!-- HEADER -->
+    <header class="main-header">
+        <div class="background-overlay py-5">
+          <div class="container">
+            <div class="row d-flex h-100">
+              <div class="col-sm-6 text-center justify-content-center align-self-center">
+                <h1>
+                  Felicidades Usted ha reservado un cita con el Medico. 
+                </h1>
+                <h1>
+                    {{cita.medico}}
+                  </h1>
+
+                  <section id="newsletter" class="py-2">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 d-flex  justify-content-center">
+                                <img class="img-fluid d-none d-sm-block" src="{{cita.foto_especialidad}}">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                    <h1>Especialidad :  {{cita.especialidad}}</h1>
+                    <h1>Fecha  :  {{cita.fecha}}</h1>
+                    <h1>hora :  {{cita.hora}}</h1>
+                  
+                
+
+
+
+                <a [routerLink]="['/recepcion']" class="btn btn-outline-secondary btn-lg">
+                    <i class="fas fa-house-user" ></i> Inicio
+                </a>
+
+                
+
+          <div class="d-grid gap-2 py-5">
+            <button (click)="imprimir()" class="btn btn-success btn-lg btn-block" >Imprimir</button>         
+          </div>
+
+              </div>
+              <div class="col-sm-6">
+                <img src="{{cita.foto_medico}}" class="img-fluid d-none d-sm-block">
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+    </div><!--card-->
+</div><!--container-->

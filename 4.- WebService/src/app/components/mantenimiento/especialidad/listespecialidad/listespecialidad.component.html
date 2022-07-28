@@ -1,0 +1,62 @@
+
+<div class="container py-5">
+
+    <div class="app-title">
+        <div>
+          <h2><i class="fa fa-th-list"></i> Modulo - Mantenimiento de Especialidades</h2>
+          <p>Mantenimiento de Especialidades</p>
+        </div>
+        <ul class="app-breadcrumb breadcrumb side">
+          <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+          <li class="breadcrumb-item active"><a routerLink='/admin'>Dashboard</a></li>
+          <li class="breadcrumb-item">Modulo Especialidades</li>
+         
+        </ul>
+      </div>
+        
+      <div class="row">
+                <p><button  (click)="agregarEspecialidad()" type="button" class="btn btn-primary" ><i class="fa fa-plus"></i>Agregar Especialidad</button></p>
+      </div>
+
+
+
+      <table datatable [dtOptions]="dtOptions"  class="table table-striped table-bordered dt-responsive  nowrap" style="width:100%">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>ESPECIALIDAD</th>
+        <th>DESCRIPCION</th>
+        <th>IMAGEN</th>
+        <th>ACCIONES</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let especialidad of especialidad">
+        <td>{{especialidad.id}}</td>
+        <td>{{especialidad.especialidad}}</td>
+        <td>{{especialidad.descripcion}}</td>
+        <td><img src="{{especialidad.imagen}}" class="img-fluid" style="width: 50px;"></td>
+
+                                            <!--TABLA PARA ORDERNAR LOS BOTONES DE EDITAR Y ACTUALIZAR-->
+                                            <td><table  cellpadding="2">
+                                                <tbody>
+                                                    <tr>
+                                                        <td><a [routerLink]="['../editarEspecialidad/',especialidad.id]" type="button"  class="btn btn-success edit" ><span class="fa fa-lg fa-edit"> </span></a></td>
+                                                        <td><a (click)="confirmarDialogo(especialidad.id)" type="button" class="btn btn-danger"><i class="fas fa-lg fa-trash"></i></a></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table></td>
+
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+
+
+
+
+
+
+

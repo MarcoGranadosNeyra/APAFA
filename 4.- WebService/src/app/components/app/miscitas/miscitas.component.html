@@ -1,0 +1,59 @@
+<app-mat-toolbar></app-mat-toolbar>
+
+
+  <div class="container">
+  
+      <div class="app-title">
+          <div>
+            <h2><i class="fa fa-th-list"></i> Modulo - Citas Pendientes</h2>
+            <p>Modulo - Citas Pendientes</p>
+          </div>
+          <ul class="app-breadcrumb breadcrumb side">
+            <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+            <li class="breadcrumb-item active"><a routerLink='/paciente'>Inicio</a></li>
+            <li class="breadcrumb-item">Modulo - Citas Pendientes</li>
+            
+          </ul>
+        </div>
+          
+  
+        <div class="row">
+          <p><button routerLink='/paciente' type="button" class="btn btn-primary" ><i class="fas fa-lg fa-house-user"></i> Inicio</button></p>
+        </div>
+    
+    <table datatable class="table table-striped table-bordered row-border hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>ESPECIALIDAD</th>
+          <th>MEDICO </th>
+          <th>FECHA</th>
+          <th>HORA</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pendiente of pendiente">
+          <td>{{pendiente.id}}</td>
+          <td>{{pendiente.especialidad}}</td>
+          <td>{{pendiente.medico}}</td>
+          <td>{{pendiente.fecha}}</td>
+          <td>{{pendiente.hora}}</td>
+
+                                              <!--TABLA PARA ORDERNAR LOS BOTONES DE EDITAR Y ACTUALIZAR
+                                              <td><table  cellpadding="2">
+                                                  <tbody>
+                                                      <tr>
+                                                          <td><a (click)="confirmarReprogramacion(pendiente.id)" type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Reprogramar Cita"><i class="fas fa-lg fa-retweet"></i></a></td>
+                                                      </tr>
+                                                  </tbody>
+                                              </table></td>
+                                              -->
+    
+        </tr>
+      </tbody>
+    </table>
+    
+    </div>
+  
+

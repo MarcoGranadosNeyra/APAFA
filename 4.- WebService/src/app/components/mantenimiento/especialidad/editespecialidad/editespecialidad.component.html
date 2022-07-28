@@ -1,0 +1,61 @@
+
+
+
+  <div class="container py-5">
+    <div class="row centrar">
+      <div class="col-lg-12">
+
+        <form class="contact-form row" [formGroup]="formEspecialidad" (ngSubmit)="actualizarEspecialidad()">
+
+
+          <div class="form-row">
+            <div class="row">
+              <div class="form-group col-md-12">
+                <label><strong>Especialidad :</strong></label>
+                <input type="text" formControlName="especialidad" class="form-control form-control-lg">
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="form-row">
+            <div class="row">
+              <div class="form-group col-md-12">
+                <label><strong>Descripcion :</strong></label>
+                <textarea rows="3" type="text" formControlName="descripcion" class="form-control form-control-lg" > </textarea>
+              </div>
+            </div>
+          </div>
+          
+
+
+          <div class="form-row">
+            <div class="row">
+              <div class="form-group col-md-12">
+                <input type="hidden" class="form-control form-control-lg" formControlName="imagen">
+              </div>
+            </div>
+          </div>
+
+          
+          <div class="form-row">
+            <div class="row">
+              <div class="form-group col-md-12">
+                <label><strong>Imagen :</strong></label>
+                <input class="form-control form-control-lg" type="file" (change)="changeImage($event.target.files[0])" id="imagenx" name="imagenx" required>
+              </div>
+            </div>
+          </div>
+          
+
+          <div class="d-grid gap-2 py-5">
+            <button class="btn btn-success btn-lg btn-block" [disabled]="!formEspecialidad.valid">Actualizar</button>
+            <button class="btn btn-danger btn-lg btn-block" (click)="cancelar()">Cancelar</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+

@@ -1,0 +1,68 @@
+
+
+<div class="container py-5">
+
+    <div class="app-title">
+        <div>
+          <h2><i class="fa fa-th-list"></i> Modulo - Mantenimiento de Personas</h2>
+          <p>Mantenimiento de Personas</p>
+        </div>
+        <ul class="app-breadcrumb breadcrumb side">
+          <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+          <li class="breadcrumb-item active"><a routerLink='/main'>Dashboard</a></li>
+          <li class="breadcrumb-item">Modulo Personas</li>
+         
+        </ul>
+      </div>
+        
+      <div class="row">
+                <p><button (click)="agregarPersona()" type="button" class="btn btn-primary" data-toggle="modal" id="btnAgregarProducto"><i class="fa fa-plus"></i>Agregar Persona</button></p>
+      </div>
+  
+  
+  
+  
+  <table datatable [dtOptions]="dtOptions"  class="table table-striped table-bordered dt-responsive  nowrap" style="width:100%">
+    <thead class="table-primary">
+      <tr>
+        <th>ID</th>
+        <th>NOMBRE</th>
+        <th>TIPO DOCUMENTO</th>
+        <th>NRO DOCUMENTO</th>
+        <th>TELEFONO</th>
+        <th>FECHA DE NACIMIENTO</th>
+        <th>FOTO</th>
+        <th>ACCIONES</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let persona of personas">
+        <td>{{persona.id}}</td>
+        <td>{{persona.nombres}}</td>
+        <td>{{persona.documento}}</td>
+        <td>{{persona.nro_documento}}</td>
+        <td>{{persona.telefono}}</td>
+        <td>{{persona.fecha_naci}}</td>
+        <td><img src="{{persona.foto}}" class="img-fluid" style="width: 50px;"></td>
+
+                                            <!--TABLA PARA ORDERNAR LOS BOTONES DE EDITAR Y ACTUALIZAR-->
+                                            <td><table  cellpadding="2">
+                                                <tbody>
+                                                    <tr>
+                                                        
+                                                        <td><a [routerLink]="['../editarPersona/',persona.id]" type="button"  class="btn btn-success edit" ><span class="fa fa-lg fa-edit"> </span></a></td>
+                                                        <!--
+                                                        <td><a (click)="eliminarPersona(persona.id)" type="button" class="btn btn-danger"><i class="fas fa-lg fa-trash"></i></a></td>
+                                                        -->
+                                                    </tr>
+                                                </tbody>
+                                            </table></td>
+  
+      </tr>
+    </tbody>
+  </table>
+  
+  </div>
+
+
+

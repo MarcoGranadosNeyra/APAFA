@@ -1,0 +1,29 @@
+
+  <div class="container py-3">
+    <div class="row centrar">
+          <div class="col-lg-12">
+    
+            <form class="contact-form row" [formGroup]="formRol" (ngSubmit)="actualizarRol()">
+    
+    
+              <div class="form-row">
+                <div class="row">
+                  <div class="form-group col-md-12">
+                    <label class="col-sm-12 col-form-label"><strong>Rol :</strong></label>
+                    <input type="text" formControlName="rol" class="form-control form-control-lg">
+                  </div>
+                </div>
+              </div>
+    
+    
+              <div class="d-grid gap-2 py-5">
+                <button class="btn btn-success btn-lg btn-block" [disabled]="!formRol.valid">Actualizar</button>
+                <button class="btn btn-danger btn-lg btn-block" (click)="cancelar()">Cancelar</button>
+              </div>
+    
+            </form>
+          </div>
+        </div>
+      </div>
+    
+  

@@ -1,0 +1,48 @@
+
+<app-mat-toolbar-recepcionista></app-mat-toolbar-recepcionista>
+
+<div class="container">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+  
+          <form class="contact-form row" [formGroup]="formPaciente" (ngSubmit)="agregarPaciente()">
+              
+            <div class="form-row">
+              <div class="row">
+
+                <input type="text" class="form-control form-control-lg" formControlName="id_persona"  >
+
+                <div class="form-group col-md-4">
+                  <label><strong>Tipo de Seguro :</strong></label>
+                  <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" formControlName="id_seguro" >
+                    <option *ngFor="let seguro of seguro" value={{seguro.id}}>
+                      {{seguro.seguro}}</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-4">
+                  <label><strong>Persona de Contacto :</strong></label>
+                  <input type="text" class="form-control form-control-lg" formControlName="p_contacto"  >
+                </div>
+                <div class="form-group col-md-4">
+                  <label><strong>Telefono de contacto :</strong></label>
+                  <input type="text" class="form-control form-control-lg" formControlName="t_contacto"  >
+                </div>
+
+              </div>
+            </div>
+  
+  
+            <div class="d-grid gap-2 py-5">
+              <button class="btn btn-success btn-lg btn-block" [disabled]="!formPaciente.valid">Registrar</button>
+              <button class="btn btn-danger btn-lg btn-block" [routerLink]="['/recepcion']">Cancelar</button>
+            </div>
+  
+  
+  
+          </form>
+        </div>
+      </div>
+    </div>
+</div>
+  

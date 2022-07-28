@@ -1,0 +1,26 @@
+  <div class="container py-3">
+    <div class="row centrar">
+          <div class="col-lg-12">
+    
+            <form class="contact-form row" [formGroup]="rolFormulario" (ngSubmit)="agregarRol()">
+    
+              <div class="form-row">
+                <div class="row">
+                  <div class="form-group col-md-12">
+                    <label class="col-sm-12 col-form-label"><strong>Rol :</strong></label>
+                      <input class="form-control form-control-lg" type="text" formControlName="rol" >
+                  </div>
+                </div>
+              </div>
+    
+              <div class="d-grid gap-2 py-5">
+                <button class="btn btn-success btn-lg btn-block" [disabled]="!rolFormulario.valid">Registrar</button>
+                <button class="btn btn-danger btn-lg btn-block" [routerLink]="['../roles']">Cancelar</button>
+              </div>
+    
+            </form>
+          </div>
+        </div>
+      </div>
+    
+  

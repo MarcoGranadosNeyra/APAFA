@@ -1,0 +1,55 @@
+
+
+
+  <div class="container py-3">
+    <div class="row centrar">
+        <div class="col-lg-12">
+  
+          <form class="contact-form row" [formGroup]="formMedico" (ngSubmit)="actualizarMedico()">
+  
+  
+            <div class="form-row">
+              <div class="row">
+                <div class="form-group col-md-6">
+                 <h2><label><strong>Persona :</strong></label></h2>
+                  <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+                    (change)="getIdPersona($event)" formControlName="id_persona">
+                    <option *ngFor="let persona of persona" value={{persona.id}}  >
+                      {{persona.nombres}}</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-6">
+                  <h2><label><strong>Especialidad :</strong></label></h2>
+                  <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+                    (change)="getIdEspecialidad($event)" formControlName="id_especialidad">
+                    <option *ngFor="let especialidad of especialidad" value={{especialidad.id}}  >
+                      {{especialidad.especialidad}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+  
+            <div class="form-row">
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label><strong>Especialista :</strong></label>
+                  <input type="text" formControlName="especialista" class="form-control form-control-lg">
+                </div>
+                <div class="form-group col-md-6">
+                  <label><strong>Colegiatura :</strong></label>
+                  <input type="text" formControlName="colegiatura" class="form-control form-control-lg">
+                </div>
+              </div>
+            </div>
+  
+  
+            <div class="d-grid gap-2 py-5">
+              <button class="btn btn-success btn-lg btn-block" [disabled]="!formMedico.valid">Actualizar</button>
+              <button class="btn btn-danger btn-lg btn-block" (click)="cancelar()">Cancelar</button>
+            </div>
+  
+          </form>
+        </div>
+      </div>
+    </div>
+  

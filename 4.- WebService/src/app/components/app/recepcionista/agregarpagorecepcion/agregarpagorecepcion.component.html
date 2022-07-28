@@ -1,0 +1,163 @@
+
+
+<!--
+<app-mat-toolbar></app-mat-toolbar>
+-->
+
+  <div class="container text-center pt-4">
+    <div class="row">
+      <div class="col-md-12 mx-auto">
+  
+
+      <div class="container">
+  
+      <div class="card  border-primary">
+        <div class="card-header  text-white"  style="background-color: #311B92;" >
+          <h1><label><strong>COMPLETE EL FORMULARIO DE PAGO</strong></label></h1>
+        </div>
+        <div class="card-body">
+  
+          
+          <div class="col-md-3 text-left justify-content-left align-self-left">
+            <h1><label><strong>DETALLE DE PAGO :</strong></label></h1>
+          </div>
+  
+          <div class="form-row py-3">
+            <div class="row">
+              <div class="form-group col-md-6 py-2">
+                <label><strong>ESPECIALIDAD:</strong></label>
+                <input type="text"
+                  class="form-control form-control-lg" value="{{especialidad.especialidad}}" disabled>
+              </div>
+              <div class="form-group col-md-6 py-2">
+                <label><strong>MONTO A PAGAR:</strong></label>
+                <input type="text"
+                  class="form-control form-control-lg" value="S/. {{especialidad.precio}}" disabled>
+              </div>
+            </div>
+          </div>
+  
+  
+          <div class="col-md-3 text-left justify-content-left align-self-left">
+            <h1><label><strong>DATOS PERSONALES :</strong></label></h1>
+          </div>
+  
+          <div class="form-row">
+            <div class="row">
+              <div class="form-group col-md-4 py-2">
+                <label><strong>Nombres </strong></label>
+                <input type="text" minlength="16" class="form-control form-control-lg" value="{{persona.nombre}}" disabled>
+              </div>
+              <div class="form-group col-md-4 py-2">
+                <label><strong>Apellido Paterno :</strong></label>
+                <input type="text"   class="form-control form-control-lg" value="{{persona.apaterno}}" disabled>
+              </div>
+              <div class="form-group col-md-4 py-2">
+                <label><strong>Apellido Materno:</strong></label>
+                <input type="text"  class="form-control form-control-lg" value="{{persona.amaterno}}" disabled>
+              </div>
+              <div class="form-group col-md-6 py-2">
+                <label><strong>correo:</strong></label>
+                <input type="text"   class="form-control form-control-lg" value="{{persona.correo}}" disabled>
+              </div>
+              <div class="form-group col-md-6 py-2">
+                <label><strong>Nro Documento:</strong></label>
+                <input type="text"  class="form-control form-control-lg" value="{{persona.nro_documento}}" disabled>
+              </div>
+            </div>
+          </div>
+  
+  
+          <form class="contact-form row" [formGroup]="formularioPago" (ngSubmit)="agregarPago()">
+  
+  
+          <div class="col-md-3 text-left justify-content-left align-self-left py-3">
+            <h1><label><strong>DATOS DE LA TARJETA :</strong></label></h1>
+          </div>
+  
+          <div class="form-row">
+            <div class="row">
+              <div class="form-group col-md-12">
+                <input type="hidden" formControlName="id_cita"
+                  class="form-control form-control-lg">
+              </div>
+            </div>
+          </div>
+  
+          <div class="form-row">
+            <div class="row">
+              <div class="form-group col-md-12">
+                <input type="hidden"  formControlName="id_paciente"
+                  class="form-control form-control-lg">
+              </div>
+            </div>
+          </div>
+  
+          <div class="form-row">
+            <div class="row">
+              <div class="form-group col-md-12">
+                <input type="hidden"  formControlName="id_especialidad"
+                  class="form-control form-control-lg">
+              </div>
+            </div>
+          </div>
+
+  <!--    <div class="form-row">
+            <div class="row">
+              <div class="form-group col-md-12">
+                <input type="hidden"  formControlName="precio_pago"
+                  class="form-control form-control-lg">
+              </div>
+            </div>
+          </div>
+  -->
+
+          <div class="form-row">
+            <div class="row">
+
+              <div class="form-group col-md-4">
+                <label><strong>FORMA DE PAGO:</strong></label>
+                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+                  formControlName="id_forma_pago">
+                  <option *ngFor="let forma_pago of forma_pago" value={{forma_pago.id}} >
+                    {{forma_pago.forma_pago}}</option>
+                </select>
+              </div>
+              <div class="form-group col-md-4">
+                <label><strong>MONTO :</strong></label>
+                <input type="number"  formControlName="precio_pago"
+                  class="form-control form-control-lg">
+              </div>
+              <div class="form-group col-md-4">
+                <label><strong>DESCUENTO :</strong></label>
+                <input type="number"  formControlName="descuento"
+                  class="form-control form-control-lg" >
+              </div>
+
+
+              
+
+            </div>
+          </div>
+              
+  
+          <div class="d-grid gap-2 py-5">
+            <button class="btn btn-success" type="button" [disabled]="!formularioPago.valid" (click)="agregarPago()">Aceptar</button>
+            <button class="btn btn-danger me-md-2" type="button" (click)="cancelarPago(cita.id)">Cancelar</button>
+          </div>
+  
+
+
+          </form>
+  
+  
+  
+        </div>
+      </div>
+  
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  
